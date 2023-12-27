@@ -13,4 +13,9 @@ router.get('/getUser', (req, res) => {
 router.get('/UserByLastName', (req, res) => {
     res.render('getUserByLastName', { title: 'Hello People 🖐️' });
 });
+
+router.get('/updateUserIndex', (req, res) => {
+    res.render('searchUser', { title: 'Hello People 🖐️' });
+});
+
 export default router;

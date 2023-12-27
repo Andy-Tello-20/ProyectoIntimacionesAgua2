@@ -15,10 +15,13 @@
 <header>
 
   <ul class="ul">
+
+{{!-- los enlaces href hacen referencia a las rutas de index.js --}}
+
     <li><a href="/create" role="button">Crear Usuarios</a></li>
     <li><a href="/api/getDataBase" role="button">Base de Datos</a></li>
     <li><a href="/UserByLastName" role="button">Buscador</a></li>
-    <!-- Agrega más elementos de lista según sea necesario -->
+    <li><a href="/updateUserIndex" role="button">Modificar</a></li>
   </ul>
 </header>
 
@@ -26,6 +29,8 @@
   <main class="container">
     {{{body}}}
   </main>
+
+  <script src="/logica.js"></script>
 </body>
 
 </html>
