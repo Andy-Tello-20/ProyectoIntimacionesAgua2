@@ -32,6 +32,7 @@ router.post('/getUserByLastName', async (req, res, next) => {
     
      res.render('cards', { listUsers: users.map(user => user.toJSON()), title: 'Lista de usuarios' });
 
+     console.log(users)
 
   } catch (error) {
     next(error);
