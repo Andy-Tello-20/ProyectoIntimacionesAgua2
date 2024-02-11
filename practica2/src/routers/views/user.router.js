@@ -1,12 +1,19 @@
 import { Router } from 'express';
 import UsuarioModel from '../../models/user.models.js';
+import { v4 as uuidv4 } from 'uuid'
 
 const router = Router();
 
 router.post('/create', async (req, res, next) => {
   try {
     const { body } = req;
-    const user = await UsuarioModel.create(body);
+    console.log(body)
+
+    const newUser= {
+      ...body,
+      userId:uuidv4(),
+    }
+    const user = await UsuarioModel.create(newUser);
     res.redirect('/create')
   } catch (error) {
     next(error);
@@ -44,22 +51,18 @@ router.post('/updateUserById', async (req, res, next) => {
     const { id } = req.body
 
     const criterioDeBusqueda = {
-      _id: id
+      userId: id
 
     }
     const usuariosEncontrados = await UsuarioModel.find(criterioDeBusqueda)
 
     console.log(usuariosEncontrados)
 
-    if (!usuariosEncontrados) {
+    if (usuariosEncontrados.length === 0) {
       return res.status(401).json({ message: `No se encontró el usuario o el ID no existe 😨.` })
     }
 
     res.render('updateUser', { findedUser: usuariosEncontrados.map(user => user.toJSON()), title: 'Usuario encontrado' })
-
-    const { body } = req
-
-    const update = await UsuarioModel.updateOne(criterioDeBusqueda, { $set: body })
 
 
   } catch (error) {
@@ -74,7 +77,7 @@ router.post('/Updated', async (req, res, next) => {
     const { body } = req
 
     const criterioDeBusqueda = {
-      _id: id
+      userId: id
 
     }
 
