@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import UsuarioModel from '../../models/user.models.js';
 import { v4 as uuidv4 } from 'uuid'
+import  { authMiddleware, authRolesMiddleware } from '../../utils.js'
 
 const router = Router();
 
@@ -20,7 +21,7 @@ router.post('/create', async (req, res, next) => {
   }
 });
 
-router.get('/getDataBase', async (req, res, next) => {
+router.get('/getDataBase',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
   try {
 
     const users = await UsuarioModel.find({});
