@@ -30,3 +30,7 @@
 .boton_enlace{
     margin-bottom: 21px;
 }
+
+h1 , h3 , p{
+    text-align: center;
+}
