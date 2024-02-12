@@ -14,7 +14,10 @@
 //? Este codigo redirecciona la pagina hacia el login de forma automatica despues de 70 segundos
 
 setTimeout(function () {
-    window.location.href = "http://localhost:8080/login";
+
+//! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
+
+    window.location.href = "https://proyectointimacionesagua2-production.up.railway.app/login";
 }, 70000);
 
 
