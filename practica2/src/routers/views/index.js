@@ -5,6 +5,9 @@ import  { authMiddleware, authRolesMiddleware } from '../../utils.js'
 
 
 
+router.get('/', (req, res) => {
+    
+});
 
 router.get('/register', (req, res) => {
     res.render('register', { title: 'Hello People 🖐️' });

@@ -38,18 +38,21 @@ export const generateToken = (user) => {
 //? MIDDLEWARE DE AUTENTICACION 
 
 export const authMiddleware = (strategy) => (req, res, next) => {
-    passport.authenticate(strategy, function (error, payload, info) {
+    passport.authenticate(strategy, function (error, payload,) {
       if (error) {
         return next(error);
       }
 
       if (!payload) {
-        return res.status(401).redirect('/login')
+        return res.status(401).render('msjSesionExp')
       }
       req.user = payload;
-      next();
+      
+      next()
+      
     })(req, res, next);
   };
+
 
 //?MIDDLEWARE DE ROL
 
@@ -61,7 +64,7 @@ export const authMiddleware = (strategy) => (req, res, next) => {
   
     if (userRole !== role) {
       
-      return res.status(403).redirect('/login' );
+      return res.status(403).render('msjSesionExp' );
     }
     next();
   };
