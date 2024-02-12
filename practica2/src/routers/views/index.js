@@ -9,6 +9,10 @@ router.get('/', (req, res) => {
     
 });
 
+router.get('/menuPrincipal',authMiddleware('jwt'), (req, res) => {
+    res.render('menuPrincipal', { title: 'Hello People 🖐️' });
+});
+
 router.get('/register', (req, res) => {
     res.render('register', { title: 'Hello People 🖐️' });
 });

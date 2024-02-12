@@ -65,7 +65,7 @@ router.post('/auth/login', async (req, res) => {
         maxAge: 1000 * 60,
         httpOnly: true,
     })
-        .status(200).render('menuPrincipal');
+        .status(200).redirect('/menuPrincipal');
 });
 
 

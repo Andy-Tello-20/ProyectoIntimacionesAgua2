@@ -11,4 +11,43 @@
 
 
 
+//? Este codigo redirecciona la pagina hacia el login de forma automatica despues de 70 segundos
 
+setTimeout(function () {
+    window.location.href = "http://localhost:8080/login";
+}, 70000);
+
+
+
+// (function () {
+//     let temporizadorInactivo
+
+//     function reiniciarTemporizador() {
+
+//         setTimeout(function () {
+//         temporizadorInactivo = 0
+           
+//         }, 10000);
+//     }
+
+//     // Iniciar el temporizador al cargar la página
+//     reiniciarTemporizador();
+
+//     // Detectar el evento popstate (retroceso en la historia)
+//     window.addEventListener("popstate", function (event) {
+//         // Condicionar el evento popstate
+//         if (temporizadorInactivo === 0) {
+
+//             // Redirigir a otra página si el tiempo no es igual a cero
+//             window.location.href = "https://www.youtube.com/"
+//             console.log("Redireccionar a otra página")
+
+//                 ;
+//         } else {
+
+//             // Permitir el retroceso si el tiempo es igual a cero
+//             ;
+//             console.log("Permitir retroceso");
+//         }
+//     });
+// })()
