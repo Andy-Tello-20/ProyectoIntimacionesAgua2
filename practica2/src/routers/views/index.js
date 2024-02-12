@@ -4,13 +4,7 @@ import  { authMiddleware, authRolesMiddleware } from '../../utils.js'
 
 
 
-//? Middleware para configurar encabezados de caché
-const noCacheMiddleware = (req, res, next) => {
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
-    res.setHeader('Cache-Control', 'post-check=0, pre-check=0');
-    res.setHeader('Pragma', 'no-cache');
-    next();
-  };
+
   
 
 router.get('/', (req, res) => {
@@ -37,7 +31,7 @@ router.get('/getUser',authMiddleware('jwt'), authRolesMiddleware('admin'), (req,
     res.render('getUser', { title: 'Hello People 🖐️' });
 });
 
-router.get('/UserByLastName',authMiddleware('jwt'), authRolesMiddleware('admin'), noCacheMiddleware,(req, res) => {
+router.get('/UserByLastName',authMiddleware('jwt'), authRolesMiddleware('admin'),(req, res) => {
     res.render('getUserByLastName', { title: 'Hello People 🖐️' });
 });
 

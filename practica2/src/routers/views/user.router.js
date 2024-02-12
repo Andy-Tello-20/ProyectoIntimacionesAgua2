@@ -5,7 +5,13 @@ import  { authMiddleware, authRolesMiddleware } from '../../utils.js'
 
 const router = Router();
 
-
+//? Middleware para configurar encabezados de caché
+const noCacheMiddleware = (req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+  res.setHeader('Cache-Control', 'post-check=0, pre-check=0');
+  res.setHeader('Pragma', 'no-cache');
+  next();
+};
 
 
 router.post('/create',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
@@ -36,7 +42,7 @@ router.get('/getDataBase',authMiddleware('jwt'), authRolesMiddleware('admin'), a
   }
 });
 
-router.post('/getUserByLastName',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
+router.post('/getUserByLastName',authMiddleware('jwt'), authRolesMiddleware('admin'),noCacheMiddleware, async (req, res, next) => {
   
 
   
