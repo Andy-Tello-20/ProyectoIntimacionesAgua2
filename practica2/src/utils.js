@@ -64,7 +64,7 @@ export const authMiddleware = (strategy) => (req, res, next) => {
   
     if (userRole !== role) {
       
-      return res.status(403).render('msjSesionExp' );
+      return res.status(403).render('noPermission' );
     }
     next();
   };
