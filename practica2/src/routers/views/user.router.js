@@ -5,6 +5,9 @@ import  { authMiddleware, authRolesMiddleware } from '../../utils.js'
 
 const router = Router();
 
+
+
+
 router.post('/create',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
   try {
     const { body } = req;
@@ -22,6 +25,8 @@ router.post('/create',authMiddleware('jwt'), authRolesMiddleware('admin'), async
 });
 
 router.get('/getDataBase',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
+
+
   try {
 
     const users = await UsuarioModel.find({});
@@ -32,6 +37,9 @@ router.get('/getDataBase',authMiddleware('jwt'), authRolesMiddleware('admin'), a
 });
 
 router.post('/getUserByLastName',authMiddleware('jwt'), authRolesMiddleware('admin'), async (req, res, next) => {
+  
+
+  
   try {
 
     const { last_name } = req.body;
