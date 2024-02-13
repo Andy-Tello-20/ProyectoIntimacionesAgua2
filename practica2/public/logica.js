@@ -9,6 +9,13 @@
 //     form.submit()
 // });
 
+// import {x} from '../src/config/passport.config.js'
+// console.log ("el valor de x es", x)
+
+// let tarjeta = document.getElementsByClassName('Tarjeta')
+
+// tarjeta.classList.add("aparecer")
+
 
 
 //? Este codigo redirecciona la pagina hacia el login de forma automatica despues de 70 segundos
@@ -18,9 +25,19 @@ let localhost = "http://localhost:8080/login"
 
 setTimeout(function () {
 
-//! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
+    //! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
 
-    window.location.href = (URLweb);
+    window.location.href = (localhost);
 }, 70000);
+
+
+let tarjeta = document.getElementsByClassName('Tarjeta')[0]
+
+
+setTimeout(function () {
+
+
+    tarjeta.classList.add("aparecer")
+}, 20000);
 
 
