@@ -25,7 +25,7 @@ console.log("aqui te tengo tu variable especial", varEspecial)
 
         if(varEspecial){
 
-            socketClient.emit('serverms', 'Bienvenido nuevo cliente 😃')
+            socketClient.emit('serverms', 'Bienvenido nuevo cliente 😃😀')
         }else{
             socketClient.emit('servermsg', 'desaparecer')
         }
