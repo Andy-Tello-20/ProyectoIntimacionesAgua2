@@ -12,7 +12,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/menuPrincipal',authMiddleware('jwt'), (req, res) => {
-    res.render('menuPrincipal', { title: 'Hello People 🖐️' });
+
+    setTimeout(() => {
+        res.render('menuPrincipal', { title: 'Hello People 🖐️' });
+    }, 2000);
+    
 });
 
 router.get('/register', (req, res) => {
@@ -40,3 +44,4 @@ router.get('/updateUserIndex',authMiddleware('jwt'), authRolesMiddleware('admin'
 });
 
 export default router;
+

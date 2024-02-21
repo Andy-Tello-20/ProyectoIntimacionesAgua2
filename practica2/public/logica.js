@@ -1,22 +1,4 @@
 
-// let id = document.getElementById('buttonModificar')
-// let form = document.getElementById('form-update')
-// let campo = document.getElementById('user_Id_search')
-
-// id.addEventListener("click", () => {
-
-//     campo.value = '657dde4d1549ea6dcf3a31bc';
-//     form.submit()
-// });
-
-// import {x} from '../src/config/passport.config.js'
-// console.log ("el valor de x es", x)
-
-// let tarjeta = document.getElementsByClassName('Tarjeta')
-
-// tarjeta.classList.add("aparecer")
-
-
 
 //? Este codigo redirecciona la pagina hacia el login de forma automatica despues de 70 segundos
 
@@ -27,17 +9,31 @@ setTimeout(function () {
 
     //! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
 
-    window.location.href = (URLweb);
+    // window.location.href = (localhost)
+    window.location.reload();
 }, 70000);
 
 
-let tarjeta = document.getElementsByClassName('Tarjeta')[0]
 
 
-setTimeout(function () {
 
 
-    tarjeta.classList.add("aparecer")
-}, 20000);
 
+const socket = io()
 
+socket.emit ('mensaje', "hola desde el cliente")
+
+socket.on ('servermsg', (msg) =>{
+   
+    let tarjeta = document.getElementsByClassName('Tarjeta')[0]
+    tarjeta.classList.add(msg)
+   
+    
+})
+
+socket.on ('serverms', (msg) =>{
+   
+    console.log(msg)
+   
+    
+})

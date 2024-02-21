@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import UsuarioRegisterModel from '../../models/auth.model.js';
-import { generateToken, authMiddleware, authRolesMiddleware,createHash,isValidPassword } from '../../utils.js'
+import { generateToken, createHash,isValidPassword } from '../../utils.js'
 import { v4 as uuidv4 } from 'uuid'
+
 
 const router = Router();
 
 router.post('/auth/register', async (req, res, next) => {
+    
     try {
 
         const { first_name, last_name, user_email, password } = req.body;
@@ -42,6 +44,7 @@ router.post('/auth/register', async (req, res, next) => {
 
 
 router.post('/auth/login', async (req, res) => {
+
     const { email, password } = req.body;
 
     const user = await UsuarioRegisterModel.findOne({ user_email: email })
