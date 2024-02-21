@@ -9,8 +9,8 @@ setTimeout(function () {
 
     //! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
 
-   
-    window.location.href = (URLweb)
+    window.location.reload();
+    // window.location.href = (localhost)
 }, 70000);
 
 
@@ -23,13 +23,13 @@ const socket = io()
 
 socket.emit ('mensaje', "hola desde el cliente")
 
-socket.on ('servermsg', (msg) =>{
+// socket.on ('servermsg', (msg) =>{
    
-    let tarjeta = document.getElementsByClassName('Tarjeta')[0]
-    tarjeta.classList.add(msg)
+//     let tarjeta = document.getElementsByClassName('Tarjeta')[0]
+//     tarjeta.classList.add(msg)
    
     
-})
+// })
 
 socket.on ('serverms', (msg) =>{
    
