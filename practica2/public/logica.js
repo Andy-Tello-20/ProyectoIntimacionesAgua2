@@ -9,8 +9,8 @@ setTimeout(function () {
 
     //! cambiar a window.location.href = "http://localhost:8080/login" para desarrollar
 
-    // window.location.href = (localhost)
     window.location.reload();
+    window.location.href = (lURLweb)
 }, 70000);
 
 
